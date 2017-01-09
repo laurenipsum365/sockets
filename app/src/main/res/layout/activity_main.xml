@@ -10,19 +10,60 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="test.sockets.MainActivity">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="JSON Resonse:" />
+    <LinearLayout
+        android:id="@+id/scrollableTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/divider"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/responseMessageView"
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/responseMessageView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@id/title"
+                android:text="" />
+        </ScrollView>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="2dp"
+        android:layout_above="@+id/sendMsgLayout"
+        android:background="@color/colorAccent" />
+
+    <LinearLayout
+        android:id="@+id/sendMsgLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/socketConnectButton"
-        android:layout_below="@id/title"
-        android:text="" />
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/sendMsgButton"
+            android:layout_weight="3"
+            android:hint="Enter text here..."
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/sendMsgButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Send" />
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/socketConnectButton"
